@@ -1,0 +1,137 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://interopehrate.eu/fhir/StructureDefinition/ResearchStudy-ResearchStudy-IEHR",
+  "name": "StructureDefinitionResearchStudyResearchStudyIEHR",
+  "status": "draft",
+  "fhirVersion": "4.0.0",
+  "mapping": [
+    {
+      "identity": "BRIDG5.1",
+      "uri": "https://bridgmodel.nci.nih.gov",
+      "name": "BRIDG 5.1 Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "clinicaltrials-gov",
+      "uri": "http://clinicaltrials.gov",
+      "name": "ClinicalTrials.gov Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "ResearchStudy",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ResearchStudy",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ResearchStudy.text",
+        "path": "ResearchStudy.text",
+        "min": 1
+      },
+      {
+        "id": "ResearchStudy.extension",
+        "path": "ResearchStudy.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "ResearchStudy.extension:DataSetDefinition",
+        "path": "ResearchStudy.extension",
+        "sliceName": "DataSetDefinition",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://interopehrate.eu/fhir/StructureDefinition/DataSetDefinition"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ResearchStudy.identifier",
+        "path": "ResearchStudy.identifier",
+        "min": 1
+      },
+      {
+        "id": "ResearchStudy.title",
+        "path": "ResearchStudy.title",
+        "min": 1
+      },
+      {
+        "id": "ResearchStudy.primaryPurposeType",
+        "path": "ResearchStudy.primaryPurposeType",
+        "min": 1
+      },
+      {
+        "id": "ResearchStudy.contact",
+        "path": "ResearchStudy.contact",
+        "min": 1
+      },
+      {
+        "id": "ResearchStudy.location",
+        "path": "ResearchStudy.location",
+        "min": 1
+      },
+      {
+        "id": "ResearchStudy.description",
+        "path": "ResearchStudy.description",
+        "min": 1
+      },
+      {
+        "id": "ResearchStudy.enrollment",
+        "path": "ResearchStudy.enrollment",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://interopehrate.eu/fhir/StructureDefinition/Group-Cohort-IEHR"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ResearchStudy.period",
+        "path": "ResearchStudy.period",
+        "min": 1
+      },
+      {
+        "id": "ResearchStudy.site",
+        "path": "ResearchStudy.site",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://interopehrate.eu/fhir/StructureDefinition/Location-ReferenceResearchCenter-IEHR"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

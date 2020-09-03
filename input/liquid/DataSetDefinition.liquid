@@ -1,0 +1,57 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <table>
+  <tbody>
+  {%if ResearchStudy.extension.exists()%}
+  		<p> <b>DataSetDefinition </b></p>
+	    {%loop extension in ResearchStudy.extension.extension%}
+		<div style="background-color: whitesmoke;">
+			<p style="text-indent:10px;"> <b>DataRequirement </b></p>
+			{%if extension.value.type.exists()%}
+				<p style="text-indent:20px;"> <b>Type :</b> {{extension.value.type}}</p>
+			{%endif%}
+			{%if extension.value.subject.exists()%}
+				<p style="text-indent:20px;"> <b> Subject :</b> {{extension.value.subject}}</p>
+			{%endif%}
+				 {%loop codeFilter in extension.value.codeFilter%}
+							<p style="text-indent:20px;"> <b> CodeFilter </b> </p>
+				 			{%if codeFilter.path.exists()%}
+								<p style="text-indent:30px;"><b> Path :</b> {{codeFilter.path}}</p>
+							{%endif%}
+							{%if codeFilter.valueSet.exists()%}
+								<p style="text-indent:30px;"> <b>ValueSet :</b> {{codeFilter.valueSet}}</p>
+							{%endif%}
+							{%loop code in codeFilter.code%}
+								<p style="text-indent:30px;"> <b>Coding : </b></p>
+								{%if code.code.exists()%}
+									<p style="text-indent:40px;"> <b>Code :</b> {{code.code}}</p>
+								{%endif%}	
+								{%if code.system.exists()%}
+									<p style="text-indent:40px;"> <b>System :</b> {{code.system}}</p>
+								{%endif%}								
+								{%if code.display.exists()%}
+									<p style="text-indent:40px;"> <b>Display :</b> {{code.display}}</p>
+								{%endif%}
+							{%endloop%}
+				 {%endloop%}
+				 
+				 
+				 {%loop dateFilter in extension.value.dateFilter%}
+							<p style="text-indent:20px;"> <b> DateFilter </b> </p>
+				 			{%if dateFilter.path.exists()%}
+								<p style="text-indent:30px;"><b> Path :</b> {{dateFilter.path}}</p>
+							{%endif%}
+							{%if dateFilter.valueDateTime.exists()%}
+								<p style="text-indent:30px;"><b> DateTime :</b> {{dateFilter.valueDateTime}}</p>
+							{%endif%}
+							{%if dateFilter.valuePeriod.exists()%}
+								<p style="text-indent:30px;"><b> Period :</b> {{dateFilter.valuePeriod.start}} - {{dateFilter.valuePeriod.end}}</p>
+							{%endif%}
+				 {%endloop%}
+				 			 
+		</div>
+		{%endloop%}
+
+  {%endif%}
+  </tbody>
+  </table>
+</div>

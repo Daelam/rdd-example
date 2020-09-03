@@ -1,0 +1,61 @@
+{
+      "resourceType": "Group",
+      "id": "exampleGroupCohort1",
+      "meta": {
+        "profile": [ "http://interopehrate.eu/fhir/StructureDefinition/Group-Cohort-IEHR" ]
+      },
+      "type": "person",
+      "actual": false,
+      "name": "Cohort 1",
+      "quantity": 1000,
+      "characteristic": [ {
+        "code": {
+          "coding": [ {
+            "system": "urn:oid:1.11.111.1.1.11.111.11",
+            "code": "gender",
+            "display": "Gender"
+          } ],
+          "text": "gender"
+        },
+        "valueCodeableConcept": {
+          "text": "female"
+        },
+        "exclude": false
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:oid:1.11.111.1.1.11.111.11",
+            "code": "age",
+            "display": "Age"
+          } ],
+          "text": "age"
+        },
+        "valueRange": {
+          "low": {
+            "value": 65
+          }
+        },
+        "exclude": false
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:oid:1.11.111.1.1.11.111.11",
+            "code": "diagnosis",
+            "display": "Diagnosis"
+          } ],
+          "text": "diagnosis"
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:oid:2.16.840.1.113883.6.2",
+            "code": "I50",
+            "display": "Heart failure"
+          } ]
+        },
+        "exclude": false,
+        "period": {
+          "start": "2020-05-02",
+          "end": "2020-05-04"
+        }
+      } ]
+    }

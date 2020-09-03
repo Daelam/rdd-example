@@ -1,0 +1,34 @@
+{
+      "resourceType": "Location",
+      "id": "exampleLocation1",
+      "meta": {
+        "profile": [ "http://interopehrate.eu/fhir/StructureDefinition/Location-ReferenceResearchCenter-IEHR" ]
+      },
+      "identifier": [ {
+        "system": "urn:oid:1.11.111.1.1.11.111.11",
+        "value": "33"
+      } ],
+      "name": "Cardiovascular practice Milano",
+      "type": [ {
+        "coding": [ {
+          "system": "urn:oid:2.16.840.1.113883.1.11.17660",
+          "code": "CVDX",
+          "display": "A practice setting where cardiovascular diagnostic procedures or therapeutic interventions are performed (e.g., cardiac catheterization lab, echocardiography suite"
+        } ]
+      } ],
+      "telecom": [ {
+        "system": "phone",
+        "value": "examplenumber"
+      } ],
+      "address": {
+        "type": "postal",
+        "line": [ "Viale Certosa, 27111111" ],
+        "city": "Milano",
+        "postalCode": "20019",
+        "country": "Italy"
+      },
+      "endpoint": [ {
+        "reference": "Endpoint/exampleEndpoint",
+	"display": "Endpoint"
+      } ]
+    }

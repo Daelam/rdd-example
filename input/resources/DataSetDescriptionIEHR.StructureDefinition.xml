@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://interopehrate.eu/fhir/StructureDefinition/DataSetDefinition" />
+  <name value="DataSetDefinition" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="ResearchStudy" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Extension.extension:DataRequirement">
+      <path value="Extension.extension" />
+      <sliceName value="DataRequirement" />
+    </element>
+    <element id="Extension.extension:DataRequirement.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="DataRequirement" />
+    </element>
+    <element id="Extension.extension:DataRequirement.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="DataRequirement" />
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://interopehrate.eu/fhir/StructureDefinition/DataSetDefinition" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
