@@ -1,7 +1,7 @@
 # Blacklist files/folders in same directory as the .gitignore file
-/*
+/output/
+/input-cache/
+/temp/
+/template/
 
 # Whitelist some files
-!.gitignore
-!README.md
-!/input/
